@@ -7,10 +7,11 @@ class Hello extends Component {
         this.props.updateTitle(title);
     }
     render() {
-        return <div>
+        return (
+        <div>
             <h2 className='text-alert text-center'>Hello to {this.props.title}!</h2>
             <input type='text' onChange={this.handleTilte.bind(this)}/>
-        </div>;
+        </div>);
     }
     static get defaultProps() {
         
@@ -34,13 +35,11 @@ export class Hi extends Component {
         // this.setState({inputText:text});
     }
     render() {
-        return <div className='text-center'>
-        <input type='text' value={this.state.inputText} onChange={ (evt) => {
-            this.handleText(evt);
-        }}
-        ></input>
+        return (
+        <div className='text-center'>
+        <input type='text' value={this.state.inputText} onChange={this.handleText.bind(this)}></input>
         <Test1 get={this.state.inputText}>It just a Beginning</Test1>
-        </div>
+        </div>);
     }
 
 
