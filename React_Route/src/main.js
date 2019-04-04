@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Welcome from './Welcome';
-import Person from './Person';
+import {BrowserRouter} from 'react-router-dom';
+import App from './components/App';
+import './Stylesheets/mystyles.css';
+import ParentHook from './hooks/ParentHook';
 
-ReactDOM.render(
-    <Welcome/>
+// ReactDOM.render((<BrowserRouter>
+//     <App/>
+// </BrowserRouter>)
+//     ,
+//     document.getElementById("container"));
+
+ReactDOM.render((
+    <ParentHook/>
+)
     ,
     document.getElementById("container"));
-
-    // ReactDOM.render(
-    //     <Person/>
-    //     ,
-    //     document.getElementById("container"));

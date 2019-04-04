@@ -11,34 +11,39 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/, exclude: /node_modules/, use: {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: {
                     loader: "babel-loader"
                 }
-            }, 
+            },
             {
                 test: /\.html$/,
                 use: [
                     {
-                        loader: "html-loader", options: { minimize: true }
+                        loader: "html-loader",
+                        options: { minimize: true }
                     }
                 ]
             },
             {
                 test: /\.css$/,
-                use: ["style-loader","css-loader"]
+                use: ["style-loader", "css-loader"]
             }
         ]
     },
     plugins: [
+        // This plugin will generate an html5 file for you
+        // that includes all your webpack bundles in the body
+        // using script tags.
         new HtmlWebpackPlugin({
             template: "./index.html", // Input FileName
             filename: "./index.html" // Output FileName
         }),
-
         new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            "window.jQuery":'jquery'
+            $:'jquery',
+            jQuery:'jquery',
+            'window.jQuery':'jquery'
         })
     ],
     optimization: {
